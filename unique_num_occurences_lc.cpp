@@ -1,3 +1,6 @@
+//Arrays
+//Unique number of occurences  - Leetcode
+
 #include<bits/stdc++.h>
 using namespace std;
     
