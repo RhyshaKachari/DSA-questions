@@ -1,5 +1,6 @@
 //Array 
-//Sum or Product - Easy
+//Sum or Product - Easy 
+//Code studio
 
 #include<bits/stdc++.h>
 using namespace std;
