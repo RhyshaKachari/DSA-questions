@@ -6,25 +6,21 @@ using namespace std;
 int  peakIndexInMountainArray(vector<int> &arr){
     int start = 0;
     int end  = arr.size() -1;
-    int mid = start + (end-start/2);
-    while (true)
+    int mid = start + (end-start)/2;
+    while (start<end)
     {
-        if (arr[mid +1] <arr[mid] && arr[mid-1] <arr[mid])
-        {
-            return mid;
+        if(arr[mid+1] >arr[mid]){
+            start = mid+1;
         }
-        else if (arr[mid-1]>arr[mid])
-        {mid = mid -1;
-            
+        else{
+            end = mid;
         }
-        else if(arr[mid+1] >arr[mid]){
-            mid = mid+1;
-        }
+        mid = start + (end-start)/2;
         
-        
-    }
+    }return start;
     
 }
+
     
 int main(){
 ios_base::sync_with_stdio(false);
