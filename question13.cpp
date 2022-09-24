@@ -1,5 +1,5 @@
 //Number of 1 Bits - Easy
-//Leetcode
+//Leetcode -    Bit Manipulation
 class Solution {
 public:
    
