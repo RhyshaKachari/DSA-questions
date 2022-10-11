@@ -1,4 +1,6 @@
-//K-th Symbol in Grammar
+//K-th Symbol in Grammar -Leetcode
+//Medium
+//Recursion
 class Solution {
 public:
     int kthGrammar(int n, int k) {
