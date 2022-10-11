@@ -14,6 +14,6 @@ public:
             
                 return !kthGrammar(n-1 , k-mid);
             
-       }
+        }
     }  
 };
