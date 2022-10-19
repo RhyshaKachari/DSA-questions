@@ -20,7 +20,7 @@ if(count > (n/2)){
 number = nums[j];
 break ;}
 }
-}
+} 
 return number;
  
     }
