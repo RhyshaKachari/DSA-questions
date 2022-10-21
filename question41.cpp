@@ -1,5 +1,7 @@
 Searching in a Nearly Sorted Array - Aditya Verma 
 
+Time Complexity = O(log n)  , Space Complexity = O(1)
+
 class Solution{
 public:
 int search(vector<int> &nums , int target) {
