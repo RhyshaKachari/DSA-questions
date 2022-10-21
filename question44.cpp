@@ -6,7 +6,7 @@ public:
  int search(vector<int> &nums , int target){
 int start = 0 ;
 int end = 1; 
-while(target > end){
+while(target > nums[end]){
 end = end *2 ;
 }
 
