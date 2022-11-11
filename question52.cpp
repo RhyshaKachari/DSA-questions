@@ -2,7 +2,7 @@
 //Medium
 
 //Time Complexity = O(k*2^n)
-//Space Complexity = O(n)
+//Space Complexity = O(k*n)
 
 class Solution 
 {
