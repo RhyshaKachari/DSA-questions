@@ -1,4 +1,4 @@
-//Binary Tree Level Order Traversal / Spiral Traversal - Leetcode
+//Binary Tree Level Order Traversal  - Leetcode
 //Time Complexity = O(N)
 //Space Complxity =  O(N)
 
