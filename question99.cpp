@@ -1,6 +1,7 @@
 // Set the rightmost unset bit - GFG
 // Time Complecity = O(N)
 // Space Complexity = O(1)
+
 class Solution
 {
 public:
