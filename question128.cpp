@@ -2,6 +2,7 @@
 // Time Complexity = O(V+E)
 // Space Complexity = O(V)
 
+Approach - DFS
 class Solution
 {
 private:
