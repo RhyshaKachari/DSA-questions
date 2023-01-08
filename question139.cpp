@@ -1,4 +1,4 @@
-// JUMP GAME - LEETCODE
+// JUMP GAME II - LEETCODE
 // Time Complexity = O(N)
 // Space Complexity = O(N)
 
