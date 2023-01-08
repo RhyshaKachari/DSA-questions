@@ -8,7 +8,7 @@ private:
     int solve(int ind, int n, vector<int> &nums, vector<int> &dp)
     {
         int ans = 1e8;
-        if (ind >= n - 1)
+        if (ind >= n -1)
         {
             return 0;
         }
