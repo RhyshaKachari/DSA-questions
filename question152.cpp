@@ -1,4 +1,4 @@
-// Majority Element
+// Majority Element - GFG
 // Time Complexity = O(N)
 // Space Complexity = O(1)
 
