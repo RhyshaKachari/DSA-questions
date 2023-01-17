@@ -1,6 +1,6 @@
 // Kth smallest element - GFG
-// Time Complexity = O(n)
-// Space Complexity = O(log n)
+// Time Complexity = O(n log k)
+// Space Complexity = O(k)
 
 class Solution
 {
