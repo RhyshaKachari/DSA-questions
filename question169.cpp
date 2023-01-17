@@ -1,4 +1,4 @@
-// Search in an Infinite Sorted Array - Leetcode
+// Search in an Infinite Sorted Array - Aditya Verma
 // Time Complexity = O(log N)
 // Space Complexity = O(1)
 
