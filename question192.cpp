@@ -1,7 +1,8 @@
 // Count Occurences of Anagrams - GFG
 
-// Time Complexity : O(n)
-// Space Complexity : O(26) or O(256)
+// Approach 1 : Using maps with sliding window concept
+//  Time Complexity : O(n)
+//  Space Complexity : O(n)
 
 class Solution
 {
@@ -63,5 +64,56 @@ public:
             }
         }
         return ans;
+    }
+};
+
+// Approach 2 : Using hashing with sliding window
+// Time Complexity : O(n)
+// Space Complexity : O(26) or O(256)
+
+class Solution
+{
+public:
+    int search(string pat, string txt)
+    {
+   
+        int arr[30] = {0}, rfr[30] = {0};
+        for (int i = 0; i < pat.size(); i++)
+        {
+            arr[txt[i] - 'a']++;
+            rfr[pat[i] - 'a']++;
+        }
+        int flag = 0, ans = 0;
+        for (int i = 0; i < 30; i++)
+        {
+            if (arr[i] != rfr[i])
+            {
+                flag = 1;
+                break;
+            }
+        }
+        if (!flag)
+        {
+            ans++;
+        }
+        for (int i = pat.size(); i < txt.size(); i++)
+        {
+            arr[txt[i - pat.size()] - 'a']--;
+            arr[txt[i] - 'a']++;
+            flag = 0;
+            for (int i = 0; i < 30; i++)
+            {
+                if (arr[i] != rfr[i])
+                {
+                    flag = 1;
+                    break;
+                }
+            }
+            if (!flag)
+            {
+                ans++;
+            }
+        }
+        return (ans);
     }
 };
