@@ -1,7 +1,7 @@
 // Reverse Nodes in K Group - Leetcode
 
 // Time Complexity = O(n)
-// Space Complexity = O(1)
+// Space Complexity = O(n)
 
 class Solution
 {
