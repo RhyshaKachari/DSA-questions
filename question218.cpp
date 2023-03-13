@@ -32,3 +32,33 @@ public:
         return head;
     }
 };
+
+
+
+//Remove duplicate element from sorted Linked List - GFG
+
+//Time Complexity = O(n)
+//Space Complexity = O(1)
+
+Node* removeDuplicates(Node* head){
+    if(head == NULL){
+        return head;
+    }
+    
+    Node* curr = head;
+    while(curr!=NULL){
+
+        //if found equal
+        if((curr->next != NULL) && (curr->data == curr->next->data) ){
+            Node* temp = curr->next;
+            curr->next = temp->next;
+            temp->next = NULL;
+            delete(temp);
+        }
+
+        else{
+            curr= curr->next;
+        }
+    }
+    return head;
+}
