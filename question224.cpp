@@ -1,7 +1,8 @@
 // Remove Nth Node from End of List - Leetcode
 
-// Time Complexity = O(N)
-// Space Complexity = O(1)
+// Approach 1 : Using the length of the linked list
+//  Time Complexity = O(N)
+//  Space Complexity = O(1)
 
 class Solution
 {
@@ -50,6 +51,38 @@ public:
         prev->next = curr->next;
         curr->next = NULL;
         delete curr;
+        return head;
+    }
+};
+
+// Approach 2 : Using fast and slow pointer
+//Time Complexity = O(n)
+//Space Complexity = O(1)
+
+class Solution
+{
+public:
+    ListNode *removeNthFromEnd(ListNode *head, int n)
+    {
+        ListNode *fast = head;
+        while (n--)
+        {
+            fast = fast->next;
+        }
+        if (fast == NULL)
+        {
+            return head->next;
+        }
+        ListNode *slow = head;
+        while (fast->next != NULL)
+        {
+            fast = fast->next;
+            slow = slow->next;
+        }
+        ListNode *todel = slow->next;
+        slow->next = todel->next;
+        todel->next = NULL;
+        delete todel;
         return head;
     }
 };
