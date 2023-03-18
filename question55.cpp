@@ -5,7 +5,7 @@
 
 class Solution{
     public:
-    void solve(int ind , int &sum , int n ,vector<int>&ans, vector<int>&arr){
+    void solve(int ind , int sum , int n ,vector<int>&ans, vector<int>&arr){
      if(ind == n){
         ans.push_back(sum);
         return;
@@ -22,4 +22,4 @@ class Solution{
         sort(ans.begin() , ans.end());
         return ans;
     }
-}
+};
