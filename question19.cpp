@@ -24,8 +24,8 @@ public:
     return subs;
   }
 };
-// Time Complexity = O(n);
-// Space Complexity = O(n);
+// Time Complexity = O(n*2^n);
+// Space Complexity = O(n*2^n);
 
 // Approach 2 - Through recursion - Aditya Verma
 
@@ -93,3 +93,5 @@ public:
     return v;
   }
 };
+//Time Complexity = O(n*2^n)
+//Space Complexity = O(n*2^n)
