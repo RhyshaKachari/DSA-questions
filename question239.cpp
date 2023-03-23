@@ -1,6 +1,6 @@
 // Delete a node from BST -  GFG
 //Time Complexity : O(Height of the BST)
-//Space Complexity : O(Height of the BST)
+//Space Complexity : O(Height of the BST) auxillary
 
 
 Node *findlastRight(Node *root)
