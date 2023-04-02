@@ -17,7 +17,7 @@ public:
         int j = mid + 1;
         for (int i = 0; i <= mid; i++)
         {
-            while (j <= right && nums[i] > 2 * LL * nums[j])
+            while (j <= right && nums[i] > 2LL * nums[j])
             {
                 j++;
             }
@@ -48,7 +48,7 @@ public:
 
         for (int i = left; i <= right; i++)
         {
-            nums[i] = t[i];
+            nums[i] = t[i - left];
         }
 
         return total;
