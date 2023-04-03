@@ -56,3 +56,73 @@ public:
         return result;
     }
 };
+
+// Approach 2 : Here we will fix two pointers and then find the remaining two elements using the two pointer technique as the array will be sorted from the first
+
+// Time Complexity : O(n log n) for sorting the array and O(n^3)
+// Space Complexity : O(1)
+
+class Solution
+{
+public:
+    vector<vector<int>> fourSum(vector<int> &nums, int target)
+    {
+        vector<vector<int>> result;
+        if (nums.empty())
+        {
+            return result;
+        }
+
+        int n = nums.size();
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < n; i++)
+        {
+            long long int target3 = target - nums[i];
+            for (int j = i + 1; j < n; j++)
+            {
+                long long int target2 = target3 - nums[j];
+                int front = j + 1;
+                int back = n - 1;
+                while (front < back)
+                {
+                    long long int twosum = nums[front] + nums[back];
+                    if (twosum < target2)
+                    {
+                        front++;
+                    }
+                    else if (twosum > target2)
+                    {
+                        back--;
+                    }
+                    else
+                    {
+                        vector<int> quadruplet(4, 0);
+                        quadruplet[0] = nums[i];
+                        quadruplet[1] = nums[j];
+                        quadruplet[2] = nums[front];
+                        quadruplet[3] = nums[back];
+                        result.push_back(quadruplet);
+
+                        while (front < back && nums[front] == quadruplet[2])
+                        {
+                            front++;
+                        }
+                        while (front < back && nums[back] == quadruplet[3])
+                        {
+                            back--;
+                        }
+                    }
+                }
+                while (j + 1 < n && nums[j + 1] == nums[j])
+                {
+                    j++;
+                }
+            }
+            while (i + 1 < n && nums[i + 1] == nums[i])
+            {
+                i++;
+            }
+        }
+        return result;
+    }
+};
