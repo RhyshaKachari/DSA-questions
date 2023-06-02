@@ -1,4 +1,4 @@
-// Ceil The Floor - GFG
+// Ceil of a number 
 // Time Complexity = O(log n)
 // Space Compelxity = O(1)
 
