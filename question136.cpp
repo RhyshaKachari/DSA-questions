@@ -26,15 +26,18 @@ private:
             jumpTwo = solve(ind - 2, height, dp) + abs(height[ind] - height[ind - 2]);
         }
         return dp[ind] = min(jumpOne, jumpTwo);
+        // cout<<min(jumpOne , jumpTwo)<<endl;
+        //  return min(jumpOne , jumpTwo);
     }
 
 public:
     int minimumEnergy(vector<int> &height, int n)
     {
         vector<int> dp(n + 1, -1);
+        return solve(n - 1, height, dp);
+        
     }
 };
-
 
 // Approach 2 : Tabulation
 // Time Complexity : O(N)
@@ -60,7 +63,6 @@ public:
         return dp[n - 1];
     }
 };
-
 
 // Approach 3: Space Optimisation
 // Time Complexity : O(N)
