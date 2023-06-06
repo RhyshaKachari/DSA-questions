@@ -2,7 +2,7 @@
 
 // Approach 1 : Memoization
 // Time Complexity : O(N*K)
-// Space Complexity  : O(N)
+// Space Complexity  : O(N) + O(N)
 
 class Solution
 {
