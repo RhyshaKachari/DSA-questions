@@ -36,10 +36,35 @@ public:
     }
 };
 
+// Time Complexity : O(N log N) + O(N)
+// Space Complexity :O(1)
+
+class Solution
+{
+public:
+    string longestCommonPrefix(vector<string> &strs)
+    {
+        sort(strs.begin(), strs.end());
+        int a = strs.size();
+        string n = strs[0], m = strs[a - 1], ans = "";
+        for (int i = 0; i < n.size(); i++)
+        {
+            if (n[i] == m[i])
+            {
+                ans += n[i];
+            }
+            else
+                break;
+        }
+        return ans;
+    }
+};
+
 // Longest Common Prefix in an Array - GFG
 
-// Time Complexity: O(N*min(|arri|))
-// Auxiliary Space: O(min(|arri|))
+// Approach 1 : Vertical Updates
+//  Time Complexity: O(N*min(|arri|))
+//  Auxiliary Space: O(min(|arri|))
 
 class Solution
 {
@@ -79,5 +104,37 @@ public:
         }
 
         return str.substr(0, count);
+    }
+};
+
+// Approach 2 : Horizontal Updates
+// Time Complexity : O(N log N) + O(N)
+// Space Complexity :O(1)
+
+class Solution
+{
+public:
+    string longestCommonPrefix(string arr[], int N)
+    {
+        sort(arr, arr + N);
+        int count = 0;
+        string str1 = arr[0];
+        string str2 = arr[N - 1];
+        for (int i = 0; i < str1.size(); i++)
+        {
+            if (str1[i] != str2[i])
+            {
+                if (count == 0)
+                {
+                    return "-1";
+                }
+                return str1.substr(0, count);
+            }
+            else
+            {
+                count++;
+            }
+        }
+        return str1.substr(0, count);
     }
 };
