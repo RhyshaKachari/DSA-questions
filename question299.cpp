@@ -7,7 +7,10 @@ class Solution
 {
 public:
     bool isIsomorphic(string s, string t)
-    {
+    {   
+        if(s.size() != t.size()){
+            return false;
+        }
         unordered_map<char, char> mp;
         unordered_set<char> st;
         int n = s.length();
