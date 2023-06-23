@@ -2,6 +2,7 @@
 // Time Complexity = O(N*M)
 // Space Complexity = O(N*M)
 
+// through BFS approach
 class Solution
 {
 public:
@@ -46,6 +47,51 @@ public:
                 {
                     cnt++;
                     bfs(row, col, vis, grid);
+                }
+            }
+        }
+        return cnt;
+    }
+};
+
+// through DFS approach
+
+class Solution
+{
+public:
+    void dfs(int row, int col, vector<vector<int>> &vis, vector<vector<char>> &grid)
+    {
+        vis[row][col] = 1;
+        int n = grid.size();
+        int m = grid[0].size();
+        for (int delrow = -1; delrow <= 1; delrow++)
+        {
+            for (int delcol = -1; delcol <= 1; delcol++)
+            {
+                int nrow = row + delrow;
+                int ncol = col + delcol;
+                if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && !vis[nrow][ncol] && grid[nrow][ncol] == '1')
+                {
+                    dfs(nrow, ncol, vis, grid);
+                }
+            }
+        }
+    }
+
+    int numIslands(vector<vector<char>> &grid)
+    {
+        int n = grid.size();
+        int m = grid[0].size();
+        int cnt = 0;
+        vector<vector<int>> vis(n, vector<int>(m, 0));
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                if (!vis[i][j] && grid[i][j] == '1')
+                {
+                    dfs(i, j, vis, grid);
+                    cnt++;
                 }
             }
         }
