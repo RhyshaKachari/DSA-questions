@@ -1,7 +1,7 @@
 // Add Two Numbers - Leetcode
 
 // Time Complexity - O(max(n ,m))
-// Space Complexity - O(1)
+// Space Complexity - O(Max(N,M)) for the resultant list.
 
 
 class Solution
