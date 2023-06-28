@@ -6,29 +6,37 @@
 class Solution
 {
 public:
-    Node *deleteNode(Node *head_Ref, int x)
+    Node *deleteNode(Node *head_ref, int x)
     {
         if (x == 1)
         {
-            head_Ref = head_Ref->next;
-            head_Ref->prev = NULL;
+            Node *temp = head_ref;
+            head_ref = head_ref->next;
+            head_ref->prev = NULL;
+            temp->next = NULL;
+            free(temp);
         }
         else
         {
-            Node *curr = head_Ref;
-            Node *temp = NULL;
             int cnt = 1;
+            Node *temp = head_ref;
+            Node *prev = NULL;
             while (cnt < x)
             {
-                temp = curr;
-                curr = curr->next;
+                prev = temp;
+                temp = temp->next;
                 cnt++;
             }
-            temp->next = curr->next;
-            // temp->next->prev = temp;
-            curr->next = NULL;
-            curr->prev = NULL;
-            return head_Ref;
+
+            prev->next = temp->next;
+            if (temp->next != NULL)
+            {
+                temp->next->prev = temp->prev;
+            }
+
+            free(temp);
+            temp = NULL;
         }
+        return head_ref;
     }
 };
