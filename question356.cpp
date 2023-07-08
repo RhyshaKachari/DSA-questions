@@ -2,22 +2,24 @@
 //Time Complexity - O(N)
 //Space Complexity - O(1)
 
-class Solution{
-    public:
-    int alternatingSubarray(vector<int>&nums){
-        int n = nums.size() ;
-        int cnt = 0;
-        for(int m = 2 ; m <= n ; m++){
-            if(nums[s-1] - nums[s-2] == pow(-1 , m)){
-                cnt++ ;
-            } 
-            else{
-                break ;
+class Solution {
+public:
+    int alternatingSubarray(vector<int>& nums) {
+        int n = nums.size();
+        
+        int maxi = -1;
+        for(int i = 0 ; i < n ; i++){
+            int flag = 1;
+            for(int j = i+1 ; j <n  ; j++){
+                if(nums[j]-nums[j-1] == flag){
+                    flag = -1*flag ;
+                    maxi = max(maxi , j-i+1 );
+                }
+                else{
+                    break ;
+                }
             }
         }
-        if(cnt != 0){
-            return cnt ;
-        }
-        return -1 ;
+        return maxi ;
     }
-}
+};
