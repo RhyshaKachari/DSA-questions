@@ -50,7 +50,7 @@ public:
 
 // Approach 2 : Memoization
 // Time Complexity - O(N*sum)
-// Space Complexity - O(N)
+// Space Complexity - O(N*sum) + O(N)
 
 class Solution
 {
