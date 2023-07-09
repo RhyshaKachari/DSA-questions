@@ -7,82 +7,62 @@
 class Solution
 {
 public:
-    int getLength(ListNode *&head)
-    {
-        int cnt = 0;
-        ListNode *curr = head;
-        while (curr != NULL)
-        {
-            curr = curr->next;
-            cnt++;
-        }
-        return cnt;
-    }
     ListNode *removeNthFromEnd(ListNode *head, int n)
     {
-        int tot = getLength(head);
-        if (head == NULL)
-        {
-            return NULL;
-        }
-        if (n > tot)
-        {
-            ListNode *nn = new ListNode(-1);
-            return nn;
-        }
 
-        int real = tot - n + 1;
-        if (real == 1)
+        int cnt = 0;
+        ListNode *temp = head;
+        while (temp)
         {
-            ListNode *temp = head;
-            head = head->next;
-            temp->next = NULL;
-            return head;
+            temp = temp->next;
+            cnt++;
         }
-        int cnt = 1;
-        ListNode *curr = head;
-        ListNode *prev = NULL;
-        while (cnt < real)
+        if (n == cnt)
         {
-            prev = curr;
+            return head->next;
+        }
+        int c = cnt - n;
+
+        ListNode *node = NULL;
+        cnt = 1;
+        ListNode *curr = head;
+        while (cnt < c)
+        {
             curr = curr->next;
             cnt++;
         }
-        prev->next = curr->next;
-        curr->next = NULL;
-        delete curr;
+        node = curr->next;
+        curr->next = node->next;
+        node->next = NULL;
+        delete node;
         return head;
     }
 };
 
 // Approach 2 : Using fast and slow pointer
-//Time Complexity = O(n)
-//Space Complexity = O(1)
+// Time Complexity = O(n)
+// Space Complexity = O(1)
 
 class Solution
 {
 public:
     ListNode *removeNthFromEnd(ListNode *head, int n)
     {
-        ListNode *fast = head;
-        while (n--)
+        ListNode *start = new ListNode();
+        start->next = head;
+        ListNode *slow = start;
+        ListNode *fast = start;
+        for (int i = 1; i <= n; i++)
         {
             fast = fast->next;
         }
-        if (fast == NULL)
-        {
-            return head->next;
-        }
-        ListNode *slow = head;
         while (fast->next != NULL)
         {
-            fast = fast->next;
             slow = slow->next;
+            fast = fast->next;
         }
-        ListNode *todel = slow->next;
-        slow->next = todel->next;
-        todel->next = NULL;
-        delete todel;
-        return head;
+
+        slow->next = slow->next->next;
+        return start->next;
     }
 };
