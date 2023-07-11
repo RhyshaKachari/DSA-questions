@@ -41,28 +41,14 @@ public:
 class Solution
 {
 public:
-    int getLength(ListNode *head)
+    ListNode *reverse(ListNode *head)
     {
-        int cnt = 0;
         ListNode *curr = head;
-        while (curr != NULL)
-        {
-            curr = curr->next;
-            cnt++;
-        }
-        return cnt;
-    }
-    ListNode *reverse(ListNode *&head)
-    {
-        if (head == NULL || head->next == NULL)
-        {
-            return head;
-        }
         ListNode *prev = NULL;
-        ListNode *curr = head;
+        ListNode *fwd = NULL;
         while (curr != NULL)
         {
-            ListNode *fwd = curr->next;
+            fwd = curr->next;
             curr->next = prev;
             prev = curr;
             curr = fwd;
@@ -71,70 +57,30 @@ public:
     }
     bool isPalindrome(ListNode *head)
     {
-        if (head == NULL)
+        if (head == NULL || head->next == NULL)
         {
             return true;
         }
-        if (head->next == NULL)
-        {
-            return true;
-        }
-        if (head->val != head->next->val && head->next->next == NULL)
-        {
-            return false;
-        }
-
+        ListNode *fast = head;
         ListNode *slow = head;
-        ListNode *fast = head->next;
-        while (slow != NULL && fast != NULL)
+        while (fast->next != NULL && fast->next->next != NULL)
         {
-            fast = fast->next;
-            if (fast != NULL)
-            {
-                fast = fast->next;
-            }
+            fast = fast->next->next;
             slow = slow->next;
         }
-        ListNode *mid = slow;
-        if (getLength(head) % 2)
-        {
-            ListNode *curr = head;
-            ListNode *newNode = reverse(mid->next);
-            mid->next = newNode;
-            while (newNode != NULL)
-            {
-                if (curr->val != newNode->val)
-                {
-                    return false;
-                }
-                curr = curr->next;
-                newNode = newNode->next;
-            }
 
-            return true;
-        }
-
-        else
+        slow->next = reverse(slow->next);
+        slow = slow->next;
+        ListNode *dummy = head;
+        while (slow != NULL)
         {
-            ListNode *curr = head;
-            while (curr->next != mid)
+            if (dummy->val != slow->val)
             {
-                curr = curr->next;
+                return false;
             }
-            ListNode *foreven = curr;
-            ListNode *newNode = reverse(mid);
-            foreven->next = newNode;
-            curr = head;
-            while (newNode != NULL)
-            {
-                if (curr->val != newNode->val)
-                {
-                    return false;
-                }
-                curr = curr->next;
-                newNode = newNode->next;
-            }
-            return true;
+            dummy = dummy->next;
+            slow = slow->next;
         }
+        return true;
     }
 };
