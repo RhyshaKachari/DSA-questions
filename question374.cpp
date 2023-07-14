@@ -112,7 +112,7 @@ public:
 
 // Approach 4 : Tabulation
 // Time Complexity - O(N*M)
-// Space Complexity - O(N*M) + O(N+M)
+// Space Complexity - O(N*M) 
 
 
 class Solution
