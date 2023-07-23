@@ -118,3 +118,32 @@ public:
         return maxi;
     }
 };
+
+// Approach 5 : Using Binary Search
+// Time Complexity - O(n log n)
+// Space Complexity - O(n)
+
+class Solution
+{
+public:
+    int longestSubsequence(int n, int a[])
+    {
+        vector<int> temp;
+        temp.push_back(a[0]);
+        int len = 1;
+        for (int i = 1; i < n; i++)
+        {
+            if (a[i] > temp.back())
+            {
+                temp.push_back(a[i]);
+                len++;
+            }
+            else
+            {
+                int ind = lower_bound(temp.begin(), temp.end(), a[i]) - temp.begin();
+                temp[ind] = a[i];
+            }
+        }
+        return len;
+    }
+};
