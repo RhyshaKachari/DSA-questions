@@ -1,7 +1,7 @@
 // Jump Game - Leetcode
 
 // Approach 1 : Memoization
-// Time Complexity = O(N)
+// Time Complexity = O(N*max(nu))
 // Space Complexity = O(N) + O(N)(recursive stack space)
 
 class Solution
