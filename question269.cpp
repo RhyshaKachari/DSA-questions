@@ -30,3 +30,29 @@ public:
             return -1;
     }
 };
+
+// Approach 2 :
+//Time Complexity - O(1)
+//Space Complexity - O(1)
+
+class Solution
+{
+public:
+    int minimumDays(int S, int N, int M)
+    {
+        // No condition
+        if (M > N || (N * 6 < M * 7 && S > 6))
+        {
+            return -1;
+        }
+        int days = S * M / N;
+        if (S * M % N)
+        {
+            return days + 1;
+        }
+        else
+        {
+            return days;
+        }
+    }
+}
